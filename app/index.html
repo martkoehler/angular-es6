@@ -1,0 +1,68 @@
+<html>
+<head>
+<link href="https://raw.githubusercontent.com/craftpip/jquery-confirm/v1.7.8/dist/jquery-confirm.min.css" rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="https://raw.githubusercontent.com/craftpip/jquery-confirm/v1.7.8/dist/jquery-confirm.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="../application.js"></script>
+<script src="http://localhost:35729/livereload.js"></script>
+
+</head>
+<body ng-app="crm">
+<div ng-controller="CustomerController as customers">
+
+  <div>
+  <form name="form" novalidate class="css-form">
+    <input type="text" name="username" ng-model="customers.username" placeholder="Benutzername" required/>
+    <div ng-show="form.username.$invalid && !form.username.$pristine">Name muss gesetzt werden</div>
+    <input type="email" name="mail" ng-model="customers.email" placeholder="E-Mail" required/>
+    <div ng-show="form.mail.$invalid && !form.mail.$pristine">E-Mail muss korrekt gesetzt werden</div>
+    <button ng-disabled="form.$invalid" ng-click="customers.addUser()">Benutzer hinzufügen</button>
+  </form>
+  </div>
+
+
+  Kundenliste mit Controller
+  <input type="text" ng-model="customers.query" placeholder="Filter" />
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>E-Mail</th>
+      </tr>
+    </thead>
+    <tr ng-repeat="user in customers.users | filter:customers.query">
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>
+      <confirm call="customers.removeUser(user)" title="wirklich löschen?" content="wirklich löschen?"></confirm>
+        <button ng-click="customers.removeUser(user)">Benutzer entfernen</button>
+      </td>
+    </tr>
+  </table>
+
+  Kundenliste mit ng-init
+  <input type="text" ng-model="customers.query" placeholder="Filter" />
+  <div ng-init="users = [{username:'Michael Mittermeier', email: 'michael@mittermeier.de'}]"/>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>E-Mail</th>
+      </tr>
+    </thead>
+    <tr ng-repeat="user in users | filter:customers.query">
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>
+      <confirm call="customers.removeUser(user)" title="wirklich löschen?" content="wirklich löschen?"></confirm>
+        <button ng-click="customers.removeUser(user)">Benutzer entfernen</button>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
