@@ -7,7 +7,9 @@
     "test": "karma start --single-run",
     "build": "webpack",
     "debug": "webpack --watch",
-    "lint": "eslint **/*.js"
+    "lint": "eslint **/*.js",
+    "webdriver":"webdriver-manager update && webdriver-manager start",
+    "protractor": "protractor protractor.conf.js"
   },
   "dependencies": {
     "angular": "^1.5.0"
@@ -22,6 +24,7 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-webpack": "^1.7.0",
     "phantomjs-prebuilt": "^2.1.5",
+    "protractor": "^3.1.1",
     "webpack": "^1.12.14",
     "webpack-livereload-plugin": "^0.6.0"
   },
