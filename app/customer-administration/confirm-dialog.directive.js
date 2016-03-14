@@ -1,7 +1,7 @@
 export default function confirm() {
     return {
       restrict: 'E',
-      template: '<button type="button" class="close" aria-label="Close" ng-click="confirm()"> <span class = "glyphicon glyphicon-remove-circle"> </span> </button>',
+      templateUrl: './customer-administration/confirm-dialog.template.html',
       scope: {
         call: '&',
         title: '@',

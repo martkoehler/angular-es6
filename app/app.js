@@ -1,12 +1,9 @@
 import angular from 'angular';
-import customerAdministration from './customerAdministration/customerAdministration';
+import customerAdministration from './customer-administration/customer-administration.module';
 
-const moduleName = 'crm';
-
-export default moduleName;
 
 // main app module with additional configuration
-angular.module(moduleName, [customerAdministration])
+export default angular.module('app', ['customerAdministration'])
   .config(function(customerServiceProvider) {
     var customers = [{
       username: 'Mart Köhler',

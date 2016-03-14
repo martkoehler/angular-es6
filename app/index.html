@@ -9,8 +9,8 @@
 <script src="http://localhost:35729/livereload.js"></script>
 
 </head>
-<body ng-app="crm">
-<div ng-controller="CustomerController as customers">
+<body ng-app="app">
+<div ng-controller="customerController as customers">
 
   <div>
   <form name="form" novalidate class="css-form">
@@ -36,7 +36,7 @@
       <td>{{user.username}}</td>
       <td>{{user.email}}</td>
       <td>
-      <confirm call="customers.removeUser(user)" title="wirklich löschen?" content="wirklich löschen?"></confirm>
+      <confirm-dialog call="customers.removeUser(user)" title="wirklich löschen?" content="wirklich löschen?"></confirm-dialog>
         <button ng-click="customers.removeUser(user)">Benutzer entfernen</button>
       </td>
     </tr>

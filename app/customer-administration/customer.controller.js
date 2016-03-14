@@ -1,7 +1,7 @@
 
-  ctrl.$inject = ['myValues', 'customerService'];
+  customerController.$inject = ['myValues', 'customerService'];
 
-  export default function ctrl(myValues, customerService) {
+  export default function customerController(myValues, customerService) {
     var that = this;
     that.name = myValues.hero();
     refresh();

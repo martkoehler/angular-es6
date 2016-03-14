@@ -3,7 +3,7 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, 'app'),
-    entry: path.resolve(__dirname, './app/crm.js'),
+    entry: path.resolve(__dirname, './app/app.js'),
     output: {
         path: __dirname,
         filename: "application.js"

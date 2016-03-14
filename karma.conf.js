@@ -5,11 +5,11 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
-      './specs/*.spec.js'
+      './test/*.spec.js'
     ],
 
     preprocessors: {
-      './specs/*.spec.js': ['webpack']
+      './test/*.spec.js': ['webpack']
     },
 
     webpack: {
