@@ -1,7 +1,7 @@
 {
   "name": "karma-jasmine-testing",
   "version": "0.0.1",
-  "description": "A sample karma-jasmine execution project",
+  "description": "AngularJS 1.5 ES6 Stack",
   "author": "Mart Köhler <mart.koehler@openknowledge.de>",
   "scripts": {
     "test": "karma start --single-run",
