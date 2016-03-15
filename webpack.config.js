@@ -6,8 +6,10 @@ module.exports = {
     entry: path.resolve(__dirname, './app/app.js'),
     output: {
         path: __dirname,
-        filename: "application.js"
+        filename: "application.js",
+        sourceMapFilename: "application.js.map"
     },
+    devtool: "source-map",
     module: {
             loaders: [
                 {
