@@ -1,6 +1,6 @@
 import customerController from '../app/customer-administration/customer.controller';
 import customerService from '../app/customer-administration/customer.service';
-import myValueFactory from '../app/customer-administration/my-values.factory';
+import MySuperHeroService from '../app/customer-administration/my-superhero.service';
 
 describe("A customerController", function() {
   it("has a manual mocked myValues factory", function() {
@@ -18,7 +18,7 @@ describe("A customerController", function() {
   });
 
   it("has a jasmine mocked myValues factory", function() {
-    var mockService = new myValueFactory();
+    var mockService = new MySuperHeroService();
     spyOn(mockService, "hero").and.returnValues("not my hero");
 
     var controller = new customerController(mockService, new customerService().$get());

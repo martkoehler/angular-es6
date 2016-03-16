@@ -1,31 +1,29 @@
-customerService.$inject = [];
+  export default class customerService {
+    constructor() {
+      this.privateUserList = [];
+    }
 
-  export default function customerService() {
-    var privateUserList = [];
+    activate(users) {
+      this.privateUserList = users;
+    }
 
-    this.activate = function(users) {
-      privateUserList = users;
-    };
-
-    this.$get = function() {
+    $get() {
+      var that = this;
       return {
-        users: function() {
-          return [].concat(privateUserList);
+        users() {
+          return [].concat(this.privateUserList);
         },
-        addUser: function(username, email) {
-          privateUserList.push({
+        addUser(username, email) {
+          that.privateUserList.push({
             username: username,
             email: email
           });
         },
-        removeUser: function(email) {
-          privateUserList = privateUserList.filter(function(user) {
+        removeUser(email) {
+          that.privateUserList = that.privateUserList.filter(function(user) {
             return user.email !== email;
           });
-        },
-        editUser: function(email) {
-
         }
       };
-    };
-  }
+    }
+  };
